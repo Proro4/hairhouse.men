@@ -1,0 +1,17 @@
+$icon-font-path: '../fonts/';
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+.header{
+  display: flex;
+  height: 120px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  &__menu{
+    display: flex;
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+  }
+}
