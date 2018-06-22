@@ -41,6 +41,6 @@ $('.wrapper__inner').scroll(function(){
     }else{
         setTimeout(function () {
             $('.section-top').addClass('hide');
-        },1500);
+        },2000);
     }
 })

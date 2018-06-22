@@ -26,7 +26,15 @@ b{
   font-weight: normal;
   font-style: normal;
 }
-
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('../fonts/Montserrat-Medium.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Montserrat-Medium.woff') format('woff'),
+       url('../fonts/Montserrat-Medium.ttf')  format('truetype'),
+       url('../fonts/Montserrat-Medium.svg#Montserrat-Medium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 @font-face {
   font-family: 'Montserrat-Bold';
   src: url('../fonts/Montserrat-Bold.eot?#iefix') format('embedded-opentype'),
@@ -329,6 +337,47 @@ b{
     }
   }
 }
+.butt{
+  font-size: 14px;
+  font-family: 'Montserrat-Bold';
+  text-transform: uppercase;
+  padding: 13px 33px;
+  display: inline-block;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  &:before{
+    color: white;
+    content: attr(title);
+    position: absolute;
+    padding: 13px 33px;
+    left: 0;
+    top: 0;
+    background-color: #000;
+    z-index: 1;
+    transition: 0.2s all;
+  }
+  &:after{
+    z-index: 0;
+    color: black;
+    content: attr(title);
+    position: absolute;
+    padding: 13px 33px;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    transform: translate3d(0,-100%,0);
+    transition: 0.2s all;
+  }
+  &:hover{
+    &:before{
+      transform: translate3d(0,100%,0);
+    }
+    &:after{
+      transform: translate3d(0,0%,0);
+    }
+  }
+}
 .slider{
   display: flex;
   width: 100%;
@@ -340,30 +389,133 @@ b{
     width: 916px;
     height: 390px;
     object-fit: contain;
+    display: flex;
+    justify-content: space-between;
+    &.item-left{
+      .slider__item__title{
+        text-align: left;
+        left: 0;
+      }
+    }
+    &.item-right{
+      .slider__item__title{
+        right: 0;
+        text-align: right;
+      }
+    }
+    &:focus{
+      text-decoration: none;
+    }
+    &:hover{
+      text-decoration: none;
+      .slider__item__photo{
+        transform: scale(1.1);
+      }
+      .slider__item__photo__hover {
+        opacity: 0.1;
+      }
+      .butt{
+        &:before{
+          transform: translate3d(0,100%,0);
+        }
+        &:after{
+          transform: translate3d(0,0%,0);
+        }
+      }
+    }
+    &__center{
+      display: flex;
+      align-items: center;
+    }
+    &__center{
+      display: flex;
+      align-items: center;
+    }
     &__numb{
       position: absolute;
       font-size: 450px;
       font-family: 'Montserrat-Bold';
       color: black;
+      left: 450px;
       bottom: -150px;
+      z-index: 3;
+    }
+    &__info{
+      padding-left: 100px;
+      color: black;
+      text-decoration: none;
+      p{
+        font-size: 14px;
+        font-family: 'Montserrat-bold';
+        letter-spacing: 1.7px;
+        &:hover{
+          text-decoration: none;
+        }
+      }
+      span{
+        font-family: 'Montserrat-Medium';
+      }
     }
     &__title{
       color:black;
       font-family: 'Montserrat-Bold';
+      text-transform: uppercase;
       position: absolute;
-      top: -100px;
+      top: -30px;
       font-size: 60px;
+      span{
+        font-family: 'Montserrat-Bold';
+        position: relative;
+      }
+      &__back{
+        z-index: 1;
+      }
+      &__top{
+        z-index: 3;
+      }
+    }
+    .butt{
+      margin-top: 38px;
+      margin-left: 100px;
     }
     &__photo{
-      margin: 25px;
+      position: relative;
+      z-index: 2;
+      margin: 25px 0 0 100px;
       width: 483px;
       height: 259px;
-      overflow: hidden;
-      img{
-        min-height: 100%;
-        min-width: 100%;
-        max-width: 130%;
-        max-height: 130%;
+      transition: 0.2s all;
+      &__img {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        img {
+          min-height: 100%;
+          min-width: 100%;
+          max-width: 130%;
+          max-height: 130%;
+        }
+      }
+      &__hover{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: 0.3s all;
+        img{
+          min-height: 100%;
+          min-width: 100%;
+          max-width: 130%;
+          max-height: 130%;
+        }
+      }
+      &:hover{
+        transform: scale(1.2);
+        .slider__item__photo__hover{
+          opacity: 0.1;
+        }
       }
     }
   }
