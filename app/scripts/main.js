@@ -25,22 +25,40 @@ $(document).ready(function(){
         }
     });
 });
-//first section scroll
-$('.wrapper__inner').scroll(function(){
-    var windowHeight = $(window).height();
-    var scrollT = $(this).scrollTop();
-    if(scrollT >= 1 || scrollT <= windowHeight +1){
-        $(this).stop().animate({
-            scrollTop: windowHeight
-        },70);
-        $('.bottom-menu__left').addClass('navOpen');
-        $('.header,.bottom-menu__powered').addClass('black');
-    }
-    if($('.section-top').hasClass('hide')){
+$(document).ready(function() {
+    var rNumb = $(this).index();
+    $('#fullpage').fullpage({
+        anchors:['Header', 'Haircut', 'Outline', 'BLOW', 'BERD', 'hot', 'CAMOUFLAGE', 'Contacts'],
+        scrollingSpeed: 1500,
+        onLeave: function( anchorLink, index, slideIndex, direction, nextSlideIndex){
+            if(rNumb <= $(this).index()){
+                console.log(rNumb+' : '+ $(this).index());
+                $(this).addClass('load-s');
+                setTimeout(function () {
+                    $('.section').removeClass('load-s');
+                    $('.section').removeClass('load-r');
+                },700);
+                rNumb = $(this).index();
+            }else if(rNumb >= $(this).index()){
+                console.log(rNumb+' : '+ $(this).index());
+                $(this).addClass('load-r');
+                setTimeout(function () {
+                    $('.section').removeClass('load-r');
+                    $('.section').removeClass('load-s');
+                },700);
+                rNumb = $(this).index();
+            }
+            //использование индекса
+            if(index == 1){
+                $('.bottom-menu__left').removeClass('navOpen');
+                $('.header,.bottom-menu__powered').removeClass('black');
+            }
+            //использование ссылки с привязкой
+            if(index == 2){
+                $('.bottom-menu__left').addClass('navOpen');
+                $('.header,.bottom-menu__powered').addClass('black');
+            }
+        },
 
-    }else{
-        setTimeout(function () {
-            $('.section-top').addClass('hide');
-        },2000);
-    }
-})
+    });
+});
