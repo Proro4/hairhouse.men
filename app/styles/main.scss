@@ -16,7 +16,9 @@ p,span,h1,h2,h3,h4,h5,h6{
 b{
   font-family: 'Montserrat-Bold';
 }
-
+a:focus{
+  color: black;
+}
 @font-face {
   font-family: 'Montserrat-Regular';
   src: url('../fonts/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
@@ -197,6 +199,7 @@ b{
   height: 65px;
   display: flex;
   z-index: 500;
+  overflow: hidden;
   &__left{
     background: #fff;
     width: 30%;
@@ -299,8 +302,16 @@ b{
     justify-content: center;
     align-items: center;
     padding-left: 50px;
+    a{
+      color: white;
+      &:hover{
+        text-decoration: none;
+      }
+    }
     &.black{
-      color: black;
+      a{
+        color: black;
+      }
     }
   }
 }
@@ -365,7 +376,7 @@ b{
     padding: 13px 33px;
     left: 0;
     top: 0;
-    background-color: #fff;
+    background-color: #b7b7b7;
     transform: translate3d(0,-100%,0);
     transition: 0.2s all;
   }
@@ -392,6 +403,9 @@ b{
     display: flex;
     justify-content: space-between;
     &.item-left{
+      .butt{
+        pointer-events: none;
+      }
       .slider__item__title{
         text-align: left;
         left: 0;
@@ -411,6 +425,7 @@ b{
       .butt{
         position: absolute;
         right: 330px;
+        pointer-events: none;
       }
       .slider__item__title{
         right: 260px;
@@ -537,7 +552,6 @@ b{
         transform: scale(1.2);
         .slider__item__photo__hover{
           opacity: 0.1;
-          overflow: hidden;
         }
       }
     }
@@ -584,7 +598,7 @@ b{
   }
   .slider__item__numb-min span{
     transform:translate3d(0,0%,0);
-    animation: textDowns 1s 1 ;
+    animation: textDown 0.5s 1 ;
   }
 }
 @keyframes textUp{
@@ -634,7 +648,7 @@ b{
   }
   .slider__item__numb-min span{
     transform:translate3d(0,0%,0);
-    animation: textDowns 1s 1 ;
+    animation: textDowns 0.5s 1 ;
   }
 } 
 // LOAD - R
@@ -666,7 +680,7 @@ b{
   }
   .slider__item__numb-min span{
     transform:translate3d(0,0%,0);
-    animation: textDowns 1s 1 ;
+    animation: textDowns 0.5s 1 ;
   }
 }
 @keyframes textUps{
@@ -764,6 +778,40 @@ b{
     color: rgba(0,0,0,0.5);
     b{
       color:black;
+    }
+  }
+}
+.hiddenon{
+  animation: hiddenOn 0.5s 1;
+  transform: translate3d(0,100%,0);
+}
+@keyframes hiddenOn {
+  0%{
+    transform: translate3d(0,0%,0);
+  }
+  100%{
+    transform: translate3d(0,100%,0);
+  }
+}
+// MEDIA
+@media screen and(max-width: 1350px){
+  .header__menu li a{
+    font-size: 14px;
+  }
+  .header__logo{
+    font-size: 19px;
+    &__inner{
+      height: 20px;
+    }
+  }
+  @keyframes logoBlack {
+    0%{
+      color: white;
+      transform: translate3d(0,0,0);
+    }
+    100%{
+      transform: translate3d(0,-20px,0);
+      color: black;
     }
   }
 }

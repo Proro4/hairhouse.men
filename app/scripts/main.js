@@ -48,17 +48,30 @@ $(document).ready(function() {
                 },700);
                 rNumb = $(this).index();
             }
-            //использование индекса
             if(index == 1){
                 $('.bottom-menu__left').removeClass('navOpen');
                 $('.header,.bottom-menu__powered').removeClass('black');
+                $('.bottom-menu__left,.bottom-menu__adress,.bottom-menu__powered').removeClass('hiddenon');
             }
-            //использование ссылки с привязкой
-            if(index == 2){
+            if(index == 2 || index == 3 || index == 4 || index == 5 || index == 6 || index == 7){
                 $('.bottom-menu__left').addClass('navOpen');
+                $('.header,.bottom-menu__powered').addClass('black');
+                $('.bottom-menu__left,.bottom-menu__adress,.bottom-menu__powered').removeClass('hiddenon');
+            }
+            if(index == 8){
+                $('.bottom-menu__left,.bottom-menu__adress,.bottom-menu__powered').addClass('hiddenon');
+                $('.bottom-menu__left').removeClass('navOpen');
                 $('.header,.bottom-menu__powered').addClass('black');
             }
         },
 
     });
+    $('.bottom-menu__nav__prev').on('click',function (e) {
+        e.preventDefault();
+        $.fn.fullpage.moveSectionUp();
+    })
+    $('.bottom-menu__nav__next').on('click',function (e) {
+        e.preventDefault();
+        $.fn.fullpage.moveSectionDown();
+    })
 });
