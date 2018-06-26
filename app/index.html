@@ -63,7 +63,7 @@
           </div>
 
           <div class="slider__item__right">
-            <div class="slider__item__numb-min">1</div>
+            <div class="slider__item__numb-min"><span>02</span></div>
           </div>
         </a>
       </section>
@@ -95,7 +95,7 @@
             </div>
           </div>
           <div class="slider__item__right">
-            <div class="slider__item__numb-min">2</div>
+            <div class="slider__item__numb-min"><span>03</span></div>
           </div>
         </a>
       </section>
@@ -127,7 +127,7 @@
             </div>
           </div>
           <div class="slider__item__right">
-            <div class="slider__item__numb-min">3</div>
+            <div class="slider__item__numb-min"><span>04</span></div>
           </div>
         </a>
       </section>
@@ -159,7 +159,7 @@
             </div>
           </div>
           <div class="slider__item__right">
-            <div class="slider__item__numb-min">4</div>
+            <div class="slider__item__numb-min"><span>05</span></div>
           </div>
         </a>
       </section>
@@ -191,7 +191,7 @@
             </div>
           </div>
           <div class="slider__item__right">
-            <div class="slider__item__numb-min">5</div>
+            <div class="slider__item__numb-min"><span>06</span></div>
           </div>
         </a>
       </section>
@@ -223,12 +223,15 @@
             </div>
           </div>
           <div class="slider__item__right">
-            <div class="slider__item__numb-min">6</div>
+            <div class="slider__item__numb-min"><span>07</span></div>
           </div>
         </a>
       </section>
     </div>
     <div class="section">
+      <div class="map__text">
+        <p>GET IN<span>TOUCH</span> WITH US</p>
+      </div>
       <div id="map"></div>
     </div>
   </div>
@@ -293,8 +296,8 @@
           var mapOptions = {
               // How zoomed in you want the map to start at (always required)
               zoom: 14,
-              // The latitude and longitude to center the map (always required)
-              center: new google.maps.LatLng(49.423877, 26.977544), //  ,
+              // The latitude and longitude to center the map (always required) 
+              center: new google.maps.LatLng(50.436256, 30.516409), //  ,
               gestureHandling: 'cooperative',
 
               // How you would like to style the map.
@@ -578,12 +581,26 @@
           var map = new google.maps.Map(mapElement, mapOptions);
 
           // Let's also add a marker while we're at it
+ var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+ 
+            '<div class="infowindow" id="bodyContent">'+
+            '<p>УЛ. БОЛЬШАЯ ВАСИЛЬКОВСКАЯ,<br> 43 / 16, КИЕВ</p>'+
+            '<p><b>380 (44) 223 11 00</b></p>'+
+            '</div>'+
+            '</div>';
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
 
           var marker = new google.maps.Marker({
-              position:  {lat:49.423877, lng:26.977544},
+              position:  {lat:50.436256, lng:30.516409},
               map: map,
               icon: 'images/marker.png'
           });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
       }
 
   </script>

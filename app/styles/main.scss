@@ -541,6 +541,21 @@ b{
         }
       }
     }
+    &__right{
+      color: black;
+      display: flex;
+      justify-content:center;
+      align-items:center; 
+    }
+    &__numb-min{
+      font-size: 36px;
+      overflow: hidden;
+      position: relative;
+      span{
+        display: inline-block;
+        font-family: 'Montserrat-Bold';
+      }
+    }
   }
 }
 .section.active{
@@ -566,6 +581,10 @@ b{
   .slider__item__numb span{
     transform:translate3d(0,0%,0);
     animation: textUp 0.8s 1 0.2s;
+  }
+  .slider__item__numb-min span{
+    transform:translate3d(0,0%,0);
+    animation: textDowns 1s 1 ;
   }
 }
 @keyframes textUp{
@@ -611,28 +630,13 @@ b{
   }
   .slider__item__numb span{
     transform:translate3d(0,0%,0);
-    animation: textUpns 1s 1 ;
+    animation: textUps 1s 1 ;
   }
-}
-@keyframes textUps{
-  0%{
+  .slider__item__numb-min span{
     transform:translate3d(0,0%,0);
+    animation: textDowns 1s 1 ;
   }
-  100%{
-    transform:translate3d(0,-100%,0);
-  }
-}
-@keyframes textDowns{
-  0%{
-    transform:translate3d(0,0%,0);
-  }
-  100%{
-    transform:translate3d(0,100%,0);
-  }
-}
-
-
-
+} 
 // LOAD - R
 
 
@@ -659,6 +663,10 @@ b{
   .slider__item__numb span{
     transform:translate3d(0,0%,0);
     animation: textUps 1s 1 ;
+  }
+  .slider__item__numb-min span{
+    transform:translate3d(0,0%,0);
+    animation: textDowns 1s 1 ;
   }
 }
 @keyframes textUps{
@@ -728,4 +736,34 @@ b{
 #map{
   width: 100%;
   height: 100%;
+}
+.map__text{
+  height: 100%;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  margin-left: 150px;
+  position: absolute;
+  z-index: 1;
+  pointer-events:none;
+  p{
+  font-size: 90px;
+  font-family: 'Montserrat-Bold';
+    span{
+      display: block;
+      font-family: 'Montserrat-Regular';  
+    }
+  }
+}
+.infowindow{
+  text-align: center;
+  p{
+    margin: 25px 0 25px;
+    font-size: 12px;
+    font-family: 'Montserrat-Regular';
+    color: rgba(0,0,0,0.5);
+    b{
+      color:black;
+    }
+  }
 }
