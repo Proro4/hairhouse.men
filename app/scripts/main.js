@@ -39,8 +39,7 @@ $(document).ready(function() {
                     $('.section').removeClass('load-r');
                 },700);
                 rNumb = $(this).index();
-            }else if(rNumb >= $(this).index()){
-                console.log(rNumb+' : '+ $(this).index());
+            }else if(rNumb >= $(this).index()){ 
                 $(this).addClass('load-r');
                 setTimeout(function () {
                     $('.section').removeClass('load-r');
@@ -50,18 +49,18 @@ $(document).ready(function() {
             }
             if(index == 1){
                 $('.bottom-menu__left').removeClass('navOpen');
-                $('.header,.bottom-menu__powered').removeClass('black');
+                $('.header,.bottom-menu__powered,.header__menu-mob__but').removeClass('black');
                 $('.bottom-menu__left,.bottom-menu__adress,.bottom-menu__powered').removeClass('hiddenon');
             }
             if(index == 2 || index == 3 || index == 4 || index == 5 || index == 6 || index == 7){
                 $('.bottom-menu__left').addClass('navOpen');
-                $('.header,.bottom-menu__powered').addClass('black');
+                $('.header,.bottom-menu__powered,.header__menu-mob__but').addClass('black');
                 $('.bottom-menu__left,.bottom-menu__adress,.bottom-menu__powered').removeClass('hiddenon');
             }
             if(index == 8){
                 $('.bottom-menu__left,.bottom-menu__adress,.bottom-menu__powered').addClass('hiddenon');
                 $('.bottom-menu__left').removeClass('navOpen');
-                $('.header,.bottom-menu__powered').addClass('black');
+                $('.header,.bottom-menu__powered,.header__menu-mob__but').addClass('black');
             }
         },
 
@@ -73,5 +72,11 @@ $(document).ready(function() {
     $('.bottom-menu__nav__next').on('click',function (e) {
         e.preventDefault();
         $.fn.fullpage.moveSectionDown();
+    })
+    $('.header__menu-mob__but').on('click',function(){
+        $('.header__menu-mob__list').addClass('active');
+    })
+    $('.header__menu-mob__list .close').on('click',function(){
+        $('.header__menu-mob__list').removeClass('active');
     })
 });
