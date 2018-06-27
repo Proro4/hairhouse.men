@@ -619,8 +619,16 @@ a:focus{
     }
     &__numb-min{
       font-size: 36px;
-      overflow: hidden;
       position: relative;
+      &:after{
+        content: '';
+        position: absolute;
+        right: -100px;
+        top: 25px;
+        height: 3px;
+        width: 70px;
+        background: black;
+      }
       span{
         display: inline-block;
         font-family: 'Montserrat-Bold';
