@@ -72,6 +72,9 @@ a:focus{
   justify-content: space-between;
   padding: 0 25px;
   z-index: 500;
+  &.bckwhite{
+    background: white;
+  }
   &.black{
     .header__logo{
       &:before{
@@ -541,9 +544,12 @@ a:focus{
       }
     }
     &__info-mob{
+      justify-content: center;
+      width: 25px;
       p{
         color: black;
         transform:rotate(-90deg);
+        white-space: nowrap;
         &:hover{
           text-decoration: none;
         }
@@ -977,6 +983,12 @@ a:focus{
   }
 }
 @media screen and (max-width: 772px){
+  .section.active .slider__item__numb-min span{
+    padding-right: 25px !important;
+  }
+  .slider__item__numb-min:after{
+    right: -50px;
+  }
   .slider__item__photo{
     margin-left: 0;
   }
@@ -984,7 +996,15 @@ a:focus{
     top:-70px;
     margin-left: 75px;
   }
-  .slider__item.item-left .slider__item__title{
+  .slider__item.item-left .slider__item__title,
+  .slider__item.item-right .slider__item__title{
     left: 50px;
+    right: inherit;
   }
+}
+.sectionoff{
+  overflow: hidden  !important;
+  height: 0 !important;
+  padding: 0 !important;
+  display: block !important;
 }

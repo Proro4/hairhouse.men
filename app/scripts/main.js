@@ -27,12 +27,12 @@ $(document).ready(function(){
 });
 $(document).ready(function() {
     var rNumb = $(this).index();
+    var prevIndex = $(this).index();
     $('#fullpage').fullpage({
         anchors:['Header', 'Haircut', 'Outline', 'BLOW', 'BERD', 'hot', 'CAMOUFLAGE', 'Contacts'],
         scrollingSpeed: 1500,
         onLeave: function( anchorLink, index, slideIndex, direction, nextSlideIndex){
             if(rNumb <= $(this).index()){
-                console.log(rNumb+' : '+ $(this).index());
                 $(this).addClass('load-s');
                 setTimeout(function () {
                     $('.section').removeClass('load-s');
@@ -51,17 +51,34 @@ $(document).ready(function() {
                 $('.bottom-menu__left').removeClass('navOpen');
                 $('.header,.bottom-menu__powered,.header__menu-mob__but').removeClass('black');
                 $('.bottom-menu__left,.bottom-menu__adress,.bottom-menu__powered').removeClass('hiddenon');
+                prevIndex=$(this).index();
+                $('.header').removeClass('bckwhite');
             }
             if(index == 2 || index == 3 || index == 4 || index == 5 || index == 6 || index == 7){
                 $('.bottom-menu__left').addClass('navOpen');
                 $('.header,.bottom-menu__powered,.header__menu-mob__but').addClass('black');
+                $('.header').addClass('bckwhite');
                 $('.bottom-menu__left,.bottom-menu__adress,.bottom-menu__powered').removeClass('hiddenon');
+                prevIndex=$(this).index();
+
             }
             if(index == 8){
                 $('.bottom-menu__left,.bottom-menu__adress,.bottom-menu__powered').addClass('hiddenon');
                 $('.bottom-menu__left').removeClass('navOpen');
                 $('.header,.bottom-menu__powered,.header__menu-mob__but').addClass('black');
+                prevIndex=$(this).index();
+                $('.header').removeClass('bckwhite');
             }
+            // if(index - prevIndex > 2 || index - prevIndex < 0){
+            //         $('.section').eq(2).addClass('sectionoff');
+            //         $('.section').eq(3).addClass('sectionoff');
+            //         $('.section').eq(4).addClass('sectionoff');
+            //         $('.section').eq(index).removeClass('sectionoff');
+            //         $('.section').eq(prevIndex).removeClass('sectionoff');
+            //     setTimeout(function () {
+            //         $('.section').removeClass('sectionoff');
+            //     },1000);
+            // }
         },
 
     });
