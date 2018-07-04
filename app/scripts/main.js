@@ -93,7 +93,7 @@ $(document).ready(function() {
     $('.header__menu-mob__but').on('click',function(){
         $('.header__menu-mob__list').addClass('active');
     })
-    $('.header__menu-mob__list .close').on('click',function(){
+    $('.header__menu-mob__list li a').on('click',function(){
         $('.header__menu-mob__list').removeClass('active');
     })
 });

@@ -452,7 +452,6 @@ a:focus{
     justify-content: space-between;
     &.item-left{
       .butt{
-        pointer-events: none;
       }
       .slider__item__title{
         text-align: left;
@@ -981,8 +980,14 @@ a:focus{
   .slider__item.item-left .slider__item__title{
     left: 250px;
   }
+  .header{
+    height: 100px;
+  }
 }
 @media screen and (max-width: 772px){
+  .header{
+    height:65px;
+  }
   .section.active .slider__item__numb-min span{
     padding-right: 25px !important;
   }

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hairhouse</title>
+    <title>HAIRHOUSE.MEN</title>
     <link rel="shortcut icon" href="images/favicon.png" type="image/png">
     <!-- Place favicon.ico in the root directory -->
 
@@ -14,6 +14,8 @@
     <!-- endbuild -->
 
     <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="https://clients.aihelps.com/css/semantic_ui_module.css">
+    <link rel="stylesheet" href="https://api.aihelps.com/v1/clients_module_settings/css?codes=130856">
     <link rel="stylesheet" type="text/css" href="../bower_components/fullpage.js/jquery.fullPage.css" />
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -43,12 +45,9 @@
               <div class="slider__item__photo__img">
                 <img src="images/photo_1.jpg" alt="">
               </div>
-              <div class="slider__item__photo__hover">
-                <img src="images/photo_1.jpg" alt="">
-              </div>
             </div>
             <div class="slider__item__title"><span class="slider__item__title__back">Haircut &</span><br> <span class="slider__item__title__top">style</span></div>
-            <div class="butt" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
+            <div class="butt online-booking" id="online_booking" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
           </div>
           <div class="slider__item__center">
             <div class="slider__item__info mob_n">
@@ -79,12 +78,10 @@
               <div class="slider__item__photo__img">
                 <img src="images/photo_2.jpg" alt="">
               </div>
-              <div class="slider__item__photo__hover">
-                <img src="images/photo_2.jpg" alt="">
-              </div>
+
             </div>
             <div class="slider__item__title"><span class="slider__item__title__back">Outline &</span><br> <span class="slider__item__title__top">taper</span></div>
-            <div class="butt" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
+            <div class="butt online-booking" id="online_booking" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
           </div>
           <div class="slider__item__center">
             <div class="slider__item__info mob_n">
@@ -114,12 +111,9 @@
               <div class="slider__item__photo__img">
                 <img src="images/photo_3.jpg" alt="">
               </div>
-              <div class="slider__item__photo__hover">
-                <img src="images/photo_3.jpg" alt="">
-              </div>
             </div>
             <div class="slider__item__title"><span class="slider__item__title__back">blow dry &</span><br> <span class="slider__item__title__top">finish</span></div>
-            <div class="butt" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
+            <div class="butt online-booking" id="online_booking" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
           </div>
           <div class="slider__item__center">
             <div class="slider__item__info mob_n">
@@ -149,12 +143,9 @@
               <div class="slider__item__photo__img">
                 <img src="images/photo_4.jpg" alt="">
               </div>
-              <div class="slider__item__photo__hover">
-                <img src="images/photo_4.jpg" alt="">
-              </div>
             </div>
             <div class="slider__item__title"><span class="slider__item__title__back">Berd &</span><br> <span class="slider__item__title__top">trim</span></div>
-            <div class="butt" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
+            <div class="butt online-booking" id="online_booking" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
           </div>
           <div class="slider__item__center">
             <div class="slider__item__info mob_n">
@@ -184,12 +175,9 @@
               <div class="slider__item__photo__img">
                 <img src="images/photo_5.jpg" alt="">
               </div>
-              <div class="slider__item__photo__hover">
-                <img src="images/photo_5.jpg" alt="">
-              </div>
             </div>
             <div class="slider__item__title"><span class="slider__item__title__back">hot wotel &</span><br> <span class="slider__item__title__top">shave</span></div>
-            <div class="butt" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
+            <div class="butt online-booking" id="online_booking" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
           </div>
           <div class="slider__item__center">
             <div class="slider__item__info mob_n">
@@ -219,12 +207,9 @@
               <div class="slider__item__photo__img">
                 <img src="images/photo_1.jpg" alt="">
               </div>
-              <div class="slider__item__photo__hover">
-                <img src="images/photo_1.jpg" alt="">
-              </div>
             </div>
             <div class="slider__item__title"><span class="slider__item__title__back">CAMOUFLAGE</span></div>
-            <div class="butt" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
+            <div class="butt online-booking" id="online_booking" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
           </div>
           <div class="slider__item__center">
             <div class="slider__item__info mob_n">
@@ -310,7 +295,7 @@
           </div>
         </div>
         <div class="bottom-menu__adress">
-           KIEV, BOLSHAYA VASILKOVKAYA str. 43/16
+           KIEV, BOLSHAYA VASILKOVSKAYA str. 43/16
         </div>
         <div class="bottom-menu__powered">
           <a href="https://hairhouse.com.ua/" target="_blank">powered by HAIRHOUSE</a>
@@ -644,9 +629,7 @@
               map: map,
               icon: 'images/marker.png'
           });
-        marker.addListener('click', function() {
           infowindow.open(map, marker);
-        });
       }
 
   </script>
@@ -676,5 +659,6 @@
     <script type="text/javascript" src="../bower_components/fullpage.js/jquery.fullPage.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
+    <script src="https://clients.aihelps.com/bundle.js" codes="130856" buttonid="online_booking"></script>
   </body>
 </html>
