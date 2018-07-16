@@ -25,6 +25,24 @@
     <!-- endbuild -->
   </head>
   <body>
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/ru_RU/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your customer chat code -->
+  <div class="fb-customerchat"
+       attribution=setup_tool
+       page_id="101695470718606"
+       theme_color="#343434"
+       logged_in_greeting="Привет! Нужна помощь?"
+       logged_out_greeting="Привет! Нужна помощь?">
+  </div>
   <div id="fullpage">
     <div class="section">
       <section class="section-top">
@@ -47,7 +65,7 @@
               </div>
             </div>
             <div class="slider__item__title"><span class="slider__item__title__back">Haircut &</span><br> <span class="slider__item__title__top">style</span></div>
-            <div class="butt online-booking" id="online_booking" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
+            <div class="butt online-booking" id="haircut-p" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
           </div>
           <div class="slider__item__center">
             <div class="slider__item__info mob_n">
@@ -81,7 +99,7 @@
 
             </div>
             <div class="slider__item__title"><span class="slider__item__title__back">Outline &</span><br> <span class="slider__item__title__top">taper</span></div>
-            <div class="butt online-booking" id="online_booking" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
+            <div class="butt online-booking" id="outline-p" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
           </div>
           <div class="slider__item__center">
             <div class="slider__item__info mob_n">
@@ -113,7 +131,7 @@
               </div>
             </div>
             <div class="slider__item__title"><span class="slider__item__title__back">blow dry &</span><br> <span class="slider__item__title__top">finish</span></div>
-            <div class="butt online-booking" id="online_booking" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
+            <div class="butt online-booking" id="blow-p" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
           </div>
           <div class="slider__item__center">
             <div class="slider__item__info mob_n">
@@ -144,8 +162,8 @@
                 <img src="images/photo_4.jpg" alt="">
               </div>
             </div>
-            <div class="slider__item__title"><span class="slider__item__title__back">Berd &</span><br> <span class="slider__item__title__top">trim</span></div>
-            <div class="butt online-booking" id="online_booking" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
+            <div class="slider__item__title"><span class="slider__item__title__back">Beard &</span><br> <span class="slider__item__title__top">trim</span></div>
+            <div class="butt online-booking" id="beard-p" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
           </div>
           <div class="slider__item__center">
             <div class="slider__item__info mob_n">
@@ -176,8 +194,8 @@
                 <img src="images/photo_5.jpg" alt="">
               </div>
             </div>
-            <div class="slider__item__title"><span class="slider__item__title__back">hot wotel &</span><br> <span class="slider__item__title__top">shave</span></div>
-            <div class="butt online-booking" id="online_booking" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
+            <div class="slider__item__title"><span class="slider__item__title__back">hot towel &</span><br> <span class="slider__item__title__top">shave</span></div>
+            <div class="butt online-booking" id="hots-p" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
           </div>
           <div class="slider__item__center">
             <div class="slider__item__info mob_n">
@@ -209,7 +227,7 @@
               </div>
             </div>
             <div class="slider__item__title"><span class="slider__item__title__back">CAMOUFLAGE</span></div>
-            <div class="butt online-booking" id="online_booking" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
+            <div class="butt online-booking" id="camouflage-p" title="ЗАПИСАТЬСЯ">ЗАПИСАТЬСЯ</div>
           </div>
           <div class="slider__item__center">
             <div class="slider__item__info mob_n">
@@ -236,11 +254,11 @@
       </div>
       <div class="map__info mob_d">
         <div class="map__info__address">
-           KIEV, BOLSHAYA VASILKOVKAYA str. 43/16
+           KIEV, BOLSHAYA VASILKOVSKAYA str. 43/16
         </div>
-        <div class="map__info__tel">
+        <a href="tel:380 (44) 223 11 00" class="map__info__tel">
           380 (44) 223 11 00
-        </div>
+        </a>
         <div class="map__info__links">
             <a href="https://www.facebook.com/HAIRHOUSE.MEN/" target="_blank"><span title="FACEBOOK">FACEBOOK</span></a>
             <a href="https://www.instagram.com/hairhouse.men/" target="_blank"><span title="INSTAGRAM">INSTAGRAM</span></a>
@@ -250,19 +268,19 @@
     </div>
   </div>
       <header class="header">
-        <a href="#Header" class="header__logo">
+        <a href="#main" class="header__logo">
           <span class="header__logo__inner">
             <span title="HAIRHOUSE.MEN">HAIRHOUSE.MEN</span>
           </span>
         </a>
         <ul class="header__menu mob_n">
-          <li><a href="#Haircut" title="haircut">haircut</a></li>
-          <li><a href="#Outline" title="OUTLINE">OUTLINE</a></li>
-          <li><a href="#BLOW" title="BLOW DRY">BLOW DRY</a></li>
-          <li><a href="#BERD" title="BERD TRIM">BERD TRIM</a></li>
-          <li><a href="#hot" title="hot shave">hot shave</a></li>
-          <li><a href="#CAMOUFLAGE" title="CAMOUFLAGE">CAMOUFLAGE</a></li>
-          <li><a href="#Contacts" title="Contacts">Contacts</a></li>
+          <li><a href="#haircut" title="haircut">haircut</a></li>
+          <li><a href="#outline" title="OUTLINE">OUTLINE</a></li>
+          <li><a href="#blowdry" title="BLOW DRY">BLOW DRY</a></li>
+          <li><a href="#berdtrim" title="BERD TRIM">BERD TRIM</a></li>
+          <li><a href="#hotshave" title="hot shave">hot shave</a></li>
+          <li><a href="#camouflage" title="CAMOUFLAGE">CAMOUFLAGE</a></li>
+          <li><a href="#contacts" title="Contacts">Contacts</a></li>
           <li class="header__menu__lang"><a href="#">  </a></li>
         </ul>
         <div class="header__menu-mob mob_d">
@@ -273,13 +291,13 @@
           </div>
           <ul class="header__menu-mob__list">
             <li><a href="#" class="close">X</a></li>
-            <li><a href="#Haircut" title="haircut">haircut</a></li>
-            <li><a href="#Outline" title="OUTLINE">OUTLINE</a></li>
-            <li><a href="#BLOW" title="BLOW DRY">BLOW DRY</a></li>
-            <li><a href="#BERD" title="BERD TRIM">BERD TRIM</a></li>
-            <li><a href="#hot" title="hot shave">hot shave</a></li>
-            <li><a href="#CAMOUFLAGE" title="CAMOUFLAGE">CAMOUFLAGE</a></li>
-            <li><a href="#Contacts" title="Contacts">Contacts</a></li> 
+            <li><a href="#haircut" title="haircut">haircut</a></li>
+            <li><a href="#outline" title="OUTLINE">OUTLINE</a></li>
+            <li><a href="#blowdry" title="BLOW DRY">BLOW DRY</a></li>
+            <li><a href="#berdtrim" title="BERD TRIM">BERD TRIM</a></li>
+            <li><a href="#hotshave" title="hot shave">hot shave</a></li>
+            <li><a href="#camouflage" title="CAMOUFLAGE">CAMOUFLAGE</a></li>
+            <li><a href="#contacts" title="Contacts">Contacts</a></li>
           </ul>
         </div>
       </header>
@@ -629,6 +647,9 @@
               map: map,
               icon: 'images/marker.png'
           });
+          marker.addListener('click', function() {
+              infowindow.open(map, marker);
+          });
           infowindow.open(map, marker);
       }
 
@@ -659,6 +680,12 @@
     <script type="text/javascript" src="../bower_components/fullpage.js/jquery.fullPage.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
-    <script src="https://clients.aihelps.com/bundle.js" codes="130856" buttonid="online_booking"></script>
+  <script src="https://clients.aihelps.com/bundle.js" codes="130856b" buttonId="haircut-p" type="text/javascript" charset="UTF-8"></script>
+  <script src="https://clients.aihelps.com/bundle.js" codes="130856c" buttonId="outline-p" type="text/javascript" charset="UTF-8"></script>
+  <script src="https://clients.aihelps.com/bundle.js" codes="130856e" buttonId="camouflage-p" type="text/javascript" charset="UTF-8"></script>
+  <script src="https://clients.aihelps.com/bundle.js" codes="130856d" buttonId="blow-p" type="text/javascript" charset="UTF-8"></script>
+  <script src="https://clients.aihelps.com/bundle.js" codes="130856f" buttonId="beard-p" type="text/javascript" charset="UTF-8"></script>
+  <script src="https://clients.aihelps.com/bundle.js" codes="130856g" buttonId="hots-p" type="text/javascript" charset="UTF-8"></script>
+
   </body>
 </html>

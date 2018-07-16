@@ -367,8 +367,14 @@ a:focus{
   left: 0;
   top: 0;
   width: 100%;
-  background: url("../images/photo_1.jpg")no-repeat center;
-  background-size: cover;
+  &.video-1{
+    background: url("../images/video-1.gif")no-repeat center;
+    background-size: cover;
+  }
+  &.video-2{
+    background: url("../images/video-2.gif")no-repeat center;
+    background-size: cover;
+   }
   &.hide{
     height:0;
     overflow: hidden;
@@ -472,7 +478,6 @@ a:focus{
       .butt{
         position: absolute;
         right: 330px;
-        pointer-events: none;
       }
       .slider__item__title{
         right: 260px;
@@ -862,6 +867,11 @@ a:focus{
       width: 100%;
       font-weight: bold;
       color: black;
+      text-decoration: none;
+      &:active{
+        text-decoration: none;
+        color: black;
+      }
     }
     &__links{
       display: flex;
@@ -985,6 +995,9 @@ a:focus{
   }
 }
 @media screen and (max-width: 772px){
+  .slider__item__photo{
+    height:425px;
+  }
   .header{
     height:65px;
   }
@@ -1005,6 +1018,9 @@ a:focus{
   .slider__item.item-right .slider__item__title{
     left: 50px;
     right: inherit;
+  }
+  .infowindow p{
+    margin: 15px 0 10px;
   }
 }
 .sectionoff{
