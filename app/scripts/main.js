@@ -1,4 +1,81 @@
 $(document).ready(function(){
+
+    var LANGUAGE;
+
+    $.redrawLanguage = function (lang) {
+        $.ajax({
+            url : 'languages/' + lang + '.json', //тянем файл с языком
+            dataType : 'json',
+            success : function (response) {
+                LANGUAGE = response; //записываем в глобальную переменную, а вдруг пригодиться
+                $('body').find('[lng]').each(function () //ищем все элементы с атрибутом
+                {
+                    var lng = LANGUAGE[ $(this).attr('lng') ]; //берем нужное значение по атрибуту lng
+                    var tag = $(this)[0].tagName.toLowerCase();
+                    switch (tag) //узнаем название тега
+                    {
+                        case 'input':
+                            $(this).val(lng);
+                            break;
+                        default:
+                            $(this).html(lng);
+                            break;
+                    }
+                });
+            }
+        });
+    };
+    $.getLanguage = function (key) {
+        if (typeof(LANGUAGE[key]) != 'undefined') //если есть переменная
+        {
+            return LANGUAGE[key]; //возвращаем значение
+        }
+        return key; //если нет, тогда ключ
+    };
+    $.redrawLanguage('lang_en');
+    setTimeout(function () {
+        $('div[title]').each(function(){
+            var text = $(this).html();
+            $(this).attr('title', text);
+        });
+    },300);
+    $('.header__menu__lang').on('click',function () {
+        if($(this).hasClass('open')){
+            $(this).removeClass('open');
+        }else{
+            $(this).addClass('open');
+        }
+    });
+    $('#ua,#mua').on('click', function(e){
+        e.preventDefault();
+        var
+            $this = $(this);
+        $.redrawLanguage('lang_ua');
+        $(this).removeClass('open');
+    });
+    $('#ru,#mru').on('click', function(e){
+        e.preventDefault();
+        var
+            $this = $(this);
+        $.redrawLanguage('lang_ru');
+        $(this).removeClass('open');
+    });
+    $('#en,#men').on('click', function(e){
+        e.preventDefault();
+        var
+            $this = $(this);
+        $.redrawLanguage('lang_en');
+        $(this).removeClass('open');
+    });
+    $('.header__menu__lang li a').on('click',function (e) {
+        setTimeout(function () {
+             $('div[title]').each(function(){
+                 var text = $(this).html();
+                 $(this).attr('title', text);
+             });
+        },300)
+    });
+
     //page Height
     var windowHeight = $(window).height();
     if(windowHeight >= 580){
@@ -7,8 +84,6 @@ $(document).ready(function(){
     }else{
         $('.section-top').css('height',580);
     }
-
-
 //page Title Height
     var headerHeight = $('.header').height();
     var title =  $('.section-top__title');
@@ -70,7 +145,6 @@ $(document).ready(function() {
                 prevIndex=$(this).index();
             }
         },
-
     });
     $('.bottom-menu__nav__prev').on('click',function (e) {
         e.preventDefault();
@@ -84,7 +158,9 @@ $(document).ready(function() {
         $('.header__menu-mob__list').addClass('active');
     });
     $('.header__menu-mob__list li a').on('click',function(){
-        $('.header__menu-mob__list').removeClass('active');
+        if($(this).hasClass('header__menu__lang')){}else{
+            $('.header__menu-mob__list').removeClass('active');
+        };
     });
         $(document).mouseup(function (e){ // событие клика по веб-документу
             if (!$('.header__menu-mob__list').is(e.target) // если клик был не по нашему блоку
@@ -97,5 +173,4 @@ $(document).ready(function() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
    $('.section-top').addClass('video-'+getRandomArbitary(1,2));
-
 });

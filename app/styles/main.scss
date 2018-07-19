@@ -142,14 +142,47 @@ a:focus{
       }
     }
     &__lang{
+      position: relative;
       cursor: pointer;
       background: url("../images/lang-w.svg")no-repeat center;
       height: 20px;
       width: 20px;
       background-size: 20px;
+      overflow: visible !important;
       a{
         height: 100%;
         width: 100%;
+        &:active,
+        &:hover{
+          transition: 0s all !important;
+          animation: 0s !important;
+          transform: none !important;
+        }
+      }
+      ul{
+        overflow: hidden;
+        height: 0;
+        padding:  0;
+        position: absolute;
+        left: 0;
+        top:100%;
+        li{
+          &:hover{
+            transition: 0s all !important;
+            animation: 0s !important;
+            transform: none !important;
+          }
+          a{
+            padding: 1px 0 1px;
+          }
+        }
+      }
+      &.open{
+        ul{
+          height: auto;
+          padding: 10px 10px 10px 0;
+
+        }
       }
     }
   }
@@ -400,7 +433,7 @@ a:focus{
     padding-left: 40px;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
     h1{
       margin: 0;
       color: white;
@@ -415,6 +448,7 @@ a:focus{
       color: white;
       display: block;
       font-size: 14px;
+      display: none;
     }
   }
 }
@@ -905,6 +939,7 @@ a:focus{
 .infowindow{
   text-align: center;
   p{
+    text-transform: uppercase;
     margin: 25px 0 25px;
     font-size: 12px;
     font-family: 'Montserrat-Regular';
@@ -961,6 +996,21 @@ a:focus{
   display: none;
 }
 @media screen and (max-width: 992px){
+  .header__menu__lang{
+    width: 100%;
+    background: url("../images/lang.svg")no-repeat center;
+    background-size: 20px;
+  }
+  .header__menu__lang.open ul{
+    width: 100%;
+    padding: 15px;
+    li{
+      a{
+        margin: 5px 0;
+      }
+    }
+  }
+
   .mob_n{
     display: none;
   }
@@ -1037,6 +1087,10 @@ a:focus{
   }
   .infowindow p{
     margin: 15px 0 10px;
+
+  }
+  .section-top__title h1{
+    font-size: 38px;
   }
 }
 .sectionoff{
