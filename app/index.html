@@ -2,8 +2,17 @@
 <html class="no-js" lang="">
   <head>
     <meta charset="utf-8">
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <meta content="REAL PLACE FOR REAL MEN" name="description" />
+    <meta property="og:description" content="REAL PLACE FOR REAL MEN">
+    <meta name="og:title" content="Hairhouse men" />
+    <meta property="og:image" content="http://hairhouse.men/images/favicon.png">
+    <meta name="og:url" content="http://hairhouse.men//" />
+    <meta name="og:image" content="http://hairhouse.men/images/favicon.png" />
+    <meta name="vk:image" content="http://hairhouse.men/images/favicon.png" />
+
     <title>HAIRHOUSE.MEN</title>
     <link rel="shortcut icon" href="images/favicon.png" type="image/png">
     <!-- Place favicon.ico in the root directory -->
@@ -250,6 +259,9 @@
       <div class="map__text mob_n">
         <p lng="map-text">GET IN<span>TOUCH</span> WITH US</p>
       </div>
+      <div class="map__link">
+        <a target="_blank" href="https://www.facebook.com/denolwebstudio/">created by <b>DENOL</b></a>
+      </div>
       <div class="map__info mob_d">
         <div class="map__info__address">
            KIEV, BOLSHAYA VASILKOVSKAYA str. 43/16
@@ -268,7 +280,7 @@
       <header class="header">
         <a href="#main" class="header__logo">
           <span class="header__logo__inner">
-            <span title="HAIRHOUSE.MEN">HAIRHOUSE.MEN</span>
+            <span class="header__logo__inner__img"></span>
           </span>
         </a>
         <ul class="header__menu mob_n">
@@ -655,6 +667,9 @@
               position:  {lat:50.436256, lng:30.516409},
               map: map,
               icon: 'images/marker.png'
+          });
+          google.maps.event.addListener(map, "click", function(event) {
+              infowindow.close();
           });
           marker.addListener('click', function() {
               infowindow.open(map, marker);

@@ -13,6 +13,9 @@ p,span,h1,h2,h3,h4,h5,h6{
     font-family: 'Montserrat-Bold';
   }
 }
+*{
+  font-family: 'Montserrat-Regular';
+}
 b{
   font-family: 'Montserrat-Bold';
 }
@@ -46,6 +49,16 @@ a:focus{
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Montserrat-Black';
+  src: url('../fonts/Montserrat-Black.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Montserrat-Black.woff') format('woff'),
+       url('../fonts/Montserrat-Black.ttf')  format('truetype'),
+       url('../fonts/Montserrat-Black.svg#Montserrat-Black') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 .wrapper{
   height: 100%;
@@ -77,6 +90,14 @@ a:focus{
   }
   &.black{
     .header__logo{
+      &__inner{
+        &__img{
+          background: url("../images/logo.svg")no-repeat left top;
+        }
+        &:after{
+          background: url("../images/logo.svg")no-repeat left top;
+        }
+      }
       &:before{
         animation: lineBlack 1s 1;
         background: black;
@@ -103,6 +124,11 @@ a:focus{
     .header__menu__lang{
       background: url("../images/lang.svg")no-repeat center;
       background-size: 20px;
+      &:before{
+        background: url("../images/lang.svg")no-repeat center;
+        background-size: 20px;
+        background-position:  0 100px;
+      }
     }
   }
   &__menu{
@@ -120,7 +146,7 @@ a:focus{
         color: rgba(255,255,255,0.8);
         text-transform: uppercase;
         font-size: 16px;
-        transition: 0.3s all;
+        transition: 0.2s all;
         letter-spacing: 2px;
         position: relative;
         transition: 0.3s all;
@@ -148,15 +174,26 @@ a:focus{
       height: 20px;
       width: 20px;
       background-size: 20px;
-      overflow: visible !important;
-      a{
-        height: 100%;
-        width: 100%;
-        &:active,
-        &:hover{
-          transition: 0s all !important;
-          animation: 0s !important;
-          transform: none !important;
+      transition: 0.2s all;
+      overflow: hidden;
+      &:before{
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 0;
+        background: url("../images/lang-w.svg")no-repeat center;
+        background-position:  0 100px;
+        transition: 0.3s all;
+        background-size: 20px;
+        height: 20px;
+        width: 20px;
+        z-index: 1;
+      }
+      &:hover{
+        background-position:  0 -100px !important;
+        &::before{
+          background-position:  0 -1px !important;
+
         }
       }
       ul{
@@ -167,6 +204,7 @@ a:focus{
         left: 0;
         top:100%;
         li{
+          height: 19px;
           &:hover{
             transition: 0s all !important;
             animation: 0s !important;
@@ -174,14 +212,23 @@ a:focus{
           }
           a{
             padding: 1px 0 1px;
+            height: 100%;
+            width: 100%;
+            &:active,
+            &:hover{
+              transition: 0s all !important;
+              animation: 0s !important;
+              transform: none !important;
+            }
           }
         }
       }
       &.open{
+        overflow: visible !important;
         ul{
           height: auto;
           padding: 10px 10px 10px 0;
-
+          animation: lang-open;
         }
       }
     }
@@ -239,52 +286,34 @@ a:focus{
     line-height: 1;
     color: #fff;
     &__inner {
+      position: relative;
       overflow: hidden;
-      height: 22px;
+      height: 30px;
       display: inline-block;
-      span {
-        position: relative;
+      &__img{
         display: inline-block;
+        background: url("../images/logo-w.svg")no-repeat left top;
+        width: 230px;
+        height: 70px;
+        background-size: contain;
         transition: 0.3s all;
-        &:before {
-          content: attr(title);
-          position: absolute;
-          left: 0;
-          top: 100%;
-        }
-      }
-      &:hover{
-        span{
-          transform:translate3d(0,-23px,0);
-        }
-      }
-    }
-    &:hover{
-      text-decoration: none;
-      color: #fff;
-      &:before{
-        animation: logoLnHover 1s 1;
       }
       &:after{
-        animation: logoLnHover 1s 1 0.5s;
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background: url("../images/logo-w.svg")no-repeat left top;
+        width: 230px;
+        height: 70px;
+        transition: 0.3s all;
       }
-    }
-    &:before,
-    &:after{
-      content: '';
-      position: absolute;
-      left: 0;
-      height: 2px;
-      width: 100%;
-      background: white;
-    }
-    &:before{
-      bottom: -2px;
-      animation:logoLnOpen 0.7s 1;
-    }
-    &:after{
-      bottom: -6px;
-      animation:logoLnOpen 1.4s 1;
+      &:hover{
+        .header__logo__inner__img,
+        &::after{
+          transform: translate3d(0,-30px,0);
+        }
+      }
     }
   }
 }
@@ -520,7 +549,7 @@ a:focus{
         overflow: hidden;
         span{
           display: inline-block;
-          font-family: Montserrat-Bold;
+          font-family: Montserrat-Black;
         }
       }
     }
@@ -540,7 +569,7 @@ a:focus{
         overflow: hidden;
         span{
           display: inline-block;
-          font-family: Montserrat-Bold;
+          font-family: Montserrat-Black;
         }
       }
     }
@@ -825,51 +854,6 @@ a:focus{
 }
 
 
-
-@keyframes logoLnOpen{
-  0%{
-    width: 0%;
-  }
-  100%{
-    width: 100%;
-  }
-}
-@keyframes logoLnHover{
-  0%{
-    width: 100%;
-  }
-  50%{
-    width: 0%;
-  }
-  100%{
-    width: 100%;
-  }
-}
-@keyframes lineBlack {
-
-  0%{
-    width: 100%;
-    background: white;
-  }
-  50%{
-    width: 0%;
-    background: white;
-  }
-  100%{
-    width: 100%;
-    background: black;
-  }
-}
-@keyframes logoBlack {
-  0%{
-    color: white;
-    transform: translate3d(0,0,0);
-  }
-  100%{
-    transform: translate3d(0,-23px,0);
-    color: black;
-  }
-}
 //MAP
 #map{
   width: 100%;
@@ -893,6 +877,24 @@ a:focus{
         font-family: 'Montserrat-Regular';  
       }
     }
+  }
+  &__link{
+    position: absolute;
+    right:60px;
+    bottom: 60px;
+    z-index: 1000;
+    display: inline-block;
+    a{
+      position: relative;
+      z-index: 1000;
+      color: black;
+      &:hover,
+      &:active,
+      &:focus{
+        color: black;
+      }
+    }
+
   }
   &__info{
     position: absolute;
