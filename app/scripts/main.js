@@ -1,3 +1,13 @@
+
+$(window).on('load', function () {
+    var preloader = $('.loaderArea');
+    var loader = preloader.find('.loader');
+    loader.delay(1800).fadeOut();
+    preloader.delay(1800).fadeOut('slow');
+    setTimeout(function () {
+        $('.logo-video').get(0).play();
+    },2500);
+});
 $(document).ready(function(){
 
     var LANGUAGE;
@@ -128,8 +138,10 @@ $(document).ready(function() {
                 $('.bottom-menu__left,.bottom-menu__adress,.bottom-menu__powered').removeClass('hiddenon');
                 prevIndex=$(this).index();
                 $('.header').removeClass('bckwhite');
+                $('.logo-video').get(0).play();
             }
             if(index == 2 || index == 3 || index == 4 || index == 5 || index == 6 || index == 7){
+                $('.logo-video').get(0).play();
 
                 $('.bottom-menu__left').addClass('navOpen');
                 $('.header,.bottom-menu__powered,.header__menu-mob__but').addClass('black');
@@ -143,6 +155,7 @@ $(document).ready(function() {
                 $('.bottom-menu__left').removeClass('navOpen');
                 $('.header,.bottom-menu__powered,.header__menu-mob__but').addClass('black');
                 prevIndex=$(this).index();
+                $('.logo-video').get(0).play();
             }
         },
     });
@@ -172,5 +185,4 @@ $(document).ready(function() {
     {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-   $('.section-top').addClass('video-'+getRandomArbitary(1,2));
 });

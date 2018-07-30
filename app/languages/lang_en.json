@@ -1,7 +1,7 @@
 {
   "h1":"<b>REAL</b> PLACE <br> FOR  <b>REAL <br> MEN</b><span>120 square meters of male happiness</span>",
-  "adress-1":" KIEV, BOLSHAYA VASILKOVSKAYA str. 43/16",
-  "adress-2":" KIEV, BOLSHAYA VASILKOVSKAYA str. <br> 43/16",
+  "adress-1":"KIEV, 41 BOLSHAYA VASILKOVSKAYA STR.",
+  "adress-2":" KIEV, BOLSHAYA VASILKOVSKAYA str. <br> 41",
   "prev":"PREVIOUS",
   "next":"NEXT",
   "book-now":"book now",
@@ -23,6 +23,7 @@
   "price-m-4":"30min /300₴",
   "price-m-5":"30min /400₴",
   "price-m-6":"30min /400₴",
-  "map-text":"GET IN<span>TOUCH</span> WITH US"
+  "map-text":"GET IN<span>TOUCH</span> WITH US",
+  "facebook":"Hello! you need support?"
 }
 

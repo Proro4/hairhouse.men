@@ -34,6 +34,10 @@
     <!-- endbuild -->
   </head>
   <body>
+  <div class="loaderArea">
+    <div class="loader">
+    </div>
+  </div>
   <!-- Load Facebook SDK for JavaScript -->
   <div id="fb-root"></div>
   <script>(function(d, s, id) {
@@ -46,6 +50,7 @@
 
   <!-- Your customer chat code -->
   <div class="fb-customerchat"
+       lng="facebook"
        attribution=setup_tool
        page_id="101695470718606"
        theme_color="#343434"
@@ -55,6 +60,15 @@
   <div id="fullpage">
     <div class="section">
       <section class="section-top">
+        <div class="block-numb">
+          <span>01</span>
+        </div>
+        <video class="logo-video" onloadeddata="this.play();" id='about-video' loop>
+          <source src="images/BG_Privew_2.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        </video>
+        <div class="section-top__photo">
+          <img src="images/bg-mob.jpg" alt="">
+        </div>
         <div class="section-top__title">
           <h1 lng="h1">
             <b>REAL</b> PLACE <br> FOR  <b>REAL <br> MEN</b>
@@ -256,6 +270,9 @@
       </section>
     </div>
     <div class="section">
+      <div class="block-numb black">
+        <span>08</span>
+      </div>
       <div class="map__text mob_n">
         <p lng="map-text">GET IN<span>TOUCH</span> WITH US</p>
       </div>
@@ -264,10 +281,10 @@
       </div>
       <div class="map__info mob_d">
         <div class="map__info__address">
-           KIEV, BOLSHAYA VASILKOVSKAYA str. 43/16
+           KIEV, 41 BOLSHAYA VASILKOVSKAYA STR.
         </div>
         <a href="tel:380 (44) 223 11 00" class="map__info__tel">
-          380 (44) 223 11 00
+          +380 (44) 223 11 00
         </a>
         <div class="map__info__links">
             <a href="https://www.facebook.com/HAIRHOUSE.MEN/" target="_blank"><span title="FACEBOOK">FACEBOOK</span></a>
@@ -287,7 +304,7 @@
           <li><a href="#haircut" title="haircut">haircut</a></li>
           <li><a href="#outline" title="OUTLINE">OUTLINE</a></li>
           <li><a href="#blowdry" title="BLOW DRY">BLOW DRY</a></li>
-          <li><a href="#berdtrim" title="BERD TRIM">BERD TRIM</a></li>
+          <li><a href="#berdtrim" title="BEARD TRIM">BEARD TRIM</a></li>
           <li><a href="#hotshave" title="hot shave">hot shave</a></li>
           <li><a href="#camouflage" title="CAMOUFLAGE">CAMOUFLAGE</a></li>
           <li><a href="#contacts" title="Contacts">Contacts</a></li>
@@ -309,7 +326,7 @@
             <li><a href="#haircut" title="haircut">haircut</a></li>
             <li><a href="#outline" title="OUTLINE">OUTLINE</a></li>
             <li><a href="#blowdry" title="BLOW DRY">BLOW DRY</a></li>
-            <li><a href="#berdtrim" title="BERD TRIM">BERD TRIM</a></li>
+            <li><a href="#berdtrim" title="BEARD TRIM">BEARD TRIM</a></li>
             <li><a href="#hotshave" title="hot shave">hot shave</a></li>
             <li><a href="#camouflage" title="CAMOUFLAGE">CAMOUFLAGE</a></li>
             <li><a href="#contacts" title="Contacts">Contacts</a></li>
@@ -365,7 +382,7 @@
 
           var mapOptions = {
               // How zoomed in you want the map to start at (always required)
-              zoom: 14,
+              zoom: 15,
               // The latitude and longitude to center the map (always required) 
               center: new google.maps.LatLng(50.436256, 30.516409), //  ,
               gestureHandling: 'cooperative',
@@ -656,7 +673,7 @@
             '</div>'+ 
             '<div class="infowindow" id="bodyContent">'+
             '<p lng="adress-2">УЛ. БОЛЬШАЯ ВАСИЛЬКОВСКАЯ,<br> 43 / 16, КИЕВ</p>'+
-            '<p><b>380 (44) 223 11 00</b></p>'+
+            '<p><b>+380 (44) 223 11 00</b></p>'+
             '</div>'+
             '</div>';
         var infowindow = new google.maps.InfoWindow({
